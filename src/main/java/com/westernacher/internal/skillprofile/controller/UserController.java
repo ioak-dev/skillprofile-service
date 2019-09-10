@@ -8,15 +8,20 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/person")
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
     private UserRepository repository;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @GetMapping
     public List<User> getAll () {
         return repository.findAll();
+    }
+
+    @PostMapping
+    public User save(@RequestBody User user) {
+        return repository.save(user);
     }
 
 }

@@ -7,18 +7,24 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Date;
 
 @Data
-@Document(collection = "person")
+@Document(collection = "user")
 public class User {
 
     @Id
     private String id;
+    private String firstName;
+    private String lastName;
     private String empId;
-    private String name;
-    private String email;
-    private String unit;
-    private Date joiningDate;
     private String designation;
-    private Date lastAppraisalDate;
-    private int duration;
+    private String primaryTech;
+    private String primarySkill;
+    private boolean billability;
+    private Date careerStartDate;
+    private Date joiningDate;
+    private ExperienceType carrerGap;
+    private ExperienceType tatolExp;
+    private ExperienceType FunctionalExp;
+    private ExperienceType previousWesternacherExp;
+    private ExperienceType totalWesternacherExp;
 
 }
