@@ -5,6 +5,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Document(collection = "user")
@@ -19,6 +20,7 @@ public class User {
     private String primaryTech;
     private String primarySkill;
     private boolean billability;
+    private List<UnitOfMeasure> profiles;
     private Date careerStartDate;
     private Date joiningDate;
     private ExperienceType carrerGap;
