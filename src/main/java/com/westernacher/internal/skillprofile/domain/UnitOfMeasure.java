@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 public class UnitOfMeasure {
     private String category;
     private String topic;
-    private ExperienceType measure;
+    private int years;
+    private int months;
 
 }

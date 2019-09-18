@@ -6,6 +6,7 @@ import com.westernacher.internal.skillprofile.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,11 +28,21 @@ public class UserController {
         return repository.save(user);
     }
 
-    @GetMapping(value = "/{userId}")
+    @GetMapping(value = "/{userId}/profile")
     public Map<String, List<UnitOfMeasure>> getUserProfileMapByUserId(@PathVariable String userId) {
         User                user     = repository.getById(userId);
         Map<String, List<UnitOfMeasure>> userMap = new HashMap<>();
-        userMap.put(user.getId(), user.getProfiles());
+
+        user.getProfiles().stream().forEach((profile) -> {
+            if (userMap.containsKey(profile.getCategory())) {
+                userMap.get(profile.getCategory()).add(profile);
+            } else {
+                List<UnitOfMeasure> list = new ArrayList<>();
+                list.add(profile);
+                userMap.put(profile.getCategory(), list);
+            }
+        });
+
         return userMap;
     }
 
