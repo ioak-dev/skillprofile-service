@@ -3,6 +3,7 @@ package com.westernacher.internal.skillprofile.controller;
 import com.westernacher.internal.skillprofile.domain.UnitOfMeasure;
 import com.westernacher.internal.skillprofile.domain.User;
 import com.westernacher.internal.skillprofile.repository.UserRepository;
+import com.westernacher.internal.skillprofile.representation.BasicProfile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,30 +21,56 @@ public class UserController {
 
     @GetMapping
     public List<User> getAll () {
-        return repository.findAll();
+        return this.repository.findAll();
     }
 
     @PostMapping
     public User save(@RequestBody User user) {
-        return repository.save(user);
+        return this.repository.save(user);
     }
 
     @GetMapping(value = "/{userId}/profile")
-    public Map<String, List<UnitOfMeasure>> getUserProfileMapByUserId(@PathVariable String userId) {
-        User                user     = repository.getById(userId);
-        Map<String, List<UnitOfMeasure>> userMap = new HashMap<>();
+    public Map getUserProfileMapByUserId(@PathVariable String userId) {
+        User                user     = this.repository.getById(userId);
+        Map<String, List<UnitOfMeasure>> measureCategories = new HashMap<>();
 
-        user.getProfiles().stream().forEach((profile) -> {
-            if (userMap.containsKey(profile.getCategory())) {
-                userMap.get(profile.getCategory()).add(profile);
+        Map responseMap = new HashMap();
+
+        user.getMeasures().stream().forEach((profile) -> {
+            if (measureCategories.containsKey(profile.getCategory())) {
+                measureCategories.get(profile.getCategory()).add(profile);
             } else {
                 List<UnitOfMeasure> list = new ArrayList<>();
                 list.add(profile);
-                userMap.put(profile.getCategory(), list);
+                measureCategories.put(profile.getCategory(), list);
             }
         });
 
-        return userMap;
+        BasicProfile basic = BasicProfile.builder()
+                                         .empId(user.getEmpId())
+                                         .designation(user.getDesignation())
+                                         .firstName(user.getFirstName())
+                                         .lastName(user.getLastName())
+                                         .primaryTech(user.getPrimaryTech())
+                                         .primarySkill(user.getPrimarySkill())
+                                         .careerStartDate(user.getCareerStartDate())
+                                         .joiningDate(user.getJoiningDate())
+                                         .carrerGapYears(user.getCarrerGap().getYears())
+                                         .carrerGapMonths(user.getCarrerGap().getMonths())
+                                         .totalExpYears(user.getTotalExp().getYears())
+                                         .totalExpMonths(user.getTotalExp().getMonths())
+                                         .functionalExpYears(user.getFunctionalExp().getYears())
+                                         .functionalExpMonths(user.getFunctionalExp().getMonths())
+                                         .previousWesternacherExpYears(user.getPreviousWesternacherExp().getYears())
+                                         .previousWesternacherExpMonths(user.getPreviousWesternacherExp().getMonths())
+                                         .totalWesternacherExpYears(user.getTotalWesternacherExp().getYears())
+                                         .totalWesternacherExpMonths(user.getTotalWesternacherExp().getMonths())
+                                         .build();
+
+        responseMap.put("profile", basic);
+        responseMap.put("measures", measureCategories);
+
+        return responseMap;
     }
 
 }

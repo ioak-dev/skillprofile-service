@@ -20,12 +20,12 @@ public class User {
     private String primaryTech;
     private String primarySkill;
     private boolean billability;
-    private List<UnitOfMeasure> profiles;
+    private List<UnitOfMeasure> measures;
     private Date careerStartDate;
     private Date joiningDate;
     private ExperienceType carrerGap;
-    private ExperienceType tatolExp;
-    private ExperienceType FunctionalExp;
+    private ExperienceType totalExp;
+    private ExperienceType functionalExp;
     private ExperienceType previousWesternacherExp;
     private ExperienceType totalWesternacherExp;
 
