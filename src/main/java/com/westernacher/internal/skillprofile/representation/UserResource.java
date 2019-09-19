@@ -16,7 +16,7 @@ public class UserResource {
     public static UserResource getUserResource(User user) {
         return UserResource.builder()
                            .email(user.getEmail())
-                           .fullName(user.getFirstName()+user.getLastName())
+                           .fullName(user.getFirstName() + user.getLastName())
                            .build();
     }
 }
