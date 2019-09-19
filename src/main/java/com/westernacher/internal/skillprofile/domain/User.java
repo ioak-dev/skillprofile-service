@@ -16,6 +16,7 @@ public class User {
     private String firstName;
     private String lastName;
     private String empId;
+    private String email;
     private String designation;
     private String primaryTech;
     private String primarySkill;

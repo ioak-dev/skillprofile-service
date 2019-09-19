@@ -4,6 +4,7 @@ import com.westernacher.internal.skillprofile.domain.UnitOfMeasure;
 import com.westernacher.internal.skillprofile.domain.User;
 import com.westernacher.internal.skillprofile.repository.UserRepository;
 import com.westernacher.internal.skillprofile.representation.BasicProfile;
+import com.westernacher.internal.skillprofile.representation.UserResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,9 +25,14 @@ public class UserController {
         return this.repository.findAll();
     }
 
+    @GetMapping(value = "/email/{emailId}")
+    public UserResource getUserByEmailId(@PathVariable String emailId) {
+        return UserResource.getUserResource(this.repository.getByEmail(emailId));
+    }
+
     @PostMapping
-    public User save(@RequestBody User user) {
-        return this.repository.save(user);
+    public UserResource save(@RequestBody User user) {
+        return UserResource.getUserResource(this.repository.save(user));
     }
 
     @GetMapping(value = "/{userId}/profile")
@@ -49,8 +55,6 @@ public class UserController {
         BasicProfile basic = BasicProfile.builder()
                                          .empId(user.getEmpId())
                                          .designation(user.getDesignation())
-                                         .firstName(user.getFirstName())
-                                         .lastName(user.getLastName())
                                          .primaryTech(user.getPrimaryTech())
                                          .primarySkill(user.getPrimarySkill())
                                          .careerStartDate(user.getCareerStartDate())

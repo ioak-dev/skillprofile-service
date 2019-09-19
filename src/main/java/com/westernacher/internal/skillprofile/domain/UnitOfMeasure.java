@@ -1,12 +1,13 @@
 package com.westernacher.internal.skillprofile.domain;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Getter
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
+@Document(collection = "measure")
 public class UnitOfMeasure {
     private String category;
     private String topic;
