@@ -4,8 +4,16 @@ import com.westernacher.internal.skillprofile.domain.Measure;
 import com.westernacher.internal.skillprofile.domain.UnitofMeasure;
 import lombok.Getter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 public class MeasureResource {
+
+    private final String category;
+    private final String topic;
+    private final int years;
+    private final int months;
 
     public MeasureResource(Measure measure) {
         this.category = measure.getCategory();
@@ -14,18 +22,20 @@ public class MeasureResource {
         this.months = measure.getUnitofMeasure().getMonths();
     }
 
-    public Measure toMeasure() {
+    public static Measure toMeasure(MeasureResource measureResource) {
         Measure measure = new Measure();
 
-        measure.setCategory(this.category);
-        measure.setTopic(this.topic);
-        measure.setUnitofMeasure(new UnitofMeasure(this.years, this.months));
+        measure.setCategory(measureResource.category);
+        measure.setTopic(measureResource.topic);
+        measure.setUnitofMeasure(new UnitofMeasure(measureResource.years, measureResource.months));
 
         return measure;
     }
 
-    private final String category;
-    private final String topic;
-    private final int years;
-    private final int months;
+    public static List<Measure> toListOfMeasure(List<MeasureResource> measureResources) {
+        List<Measure> measures = new ArrayList<>();
+        measureResources.stream().forEach(measureResource -> measures.add(new Measure(measureResource.category, measureResource.topic,
+                                                                                      new UnitofMeasure(measureResource.years, measureResource.months))));
+        return measures;
+    }
 }

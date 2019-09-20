@@ -24,13 +24,30 @@ public class UserController {
     }
 
     @PutMapping(value = "/{userId}/profilebasic")
-    public BasicProfile saveBasicProfile(@RequestBody BasicProfile basicProfile) {
-        //        return UserResource.getUserResource(this.repository.save(user));
+    public BasicProfile saveBasicProfile(@PathVariable String userId,
+                                         @RequestBody BasicProfile basicProfile) {
+        User user = repository.findById(userId).orElseGet(null);
+        if (user!=null) {
+            user = BasicProfile.toUser(basicProfile, user);
+            return BasicProfile.toBasicProfile(repository.save(user));
+        } else {
+            user = BasicProfile.toUser(basicProfile, new User());
+            return BasicProfile.toBasicProfile(repository.save(user));
+        }
+
     }
 
     @PutMapping(value = "/{userId}/profileadvanced")
-    public AdvancedProfile saveAdvancedProfile(@RequestBody AdvancedProfile advancedProfile) {
-        //        return UserResource.getUserResource(this.repository.save(user));
+    public void saveAdvancedProfile(@PathVariable String userId,
+                                               @RequestBody AdvancedProfile advancedProfile) {
+        User user = repository.findById(userId).orElseGet(null);
+        if (user!=null) {
+            user = AdvancedProfile.toUser(advancedProfile, user);
+            repository.save(user);
+        } else {
+            user = AdvancedProfile.toUser(advancedProfile, new User());
+            repository.save(user);
+        }
     }
 
     @GetMapping(value = "/email/{emailId}")
@@ -41,26 +58,7 @@ public class UserController {
     @GetMapping(value = "/{userId}/profileBasic")
     public BasicProfile getBasicProfile(@PathVariable String userId) {
         User user = this.repository.getById(userId);
-
-        return BasicProfile.builder()
-                 .empId(user.getEmpId())
-                 .designation(user.getDesignation())
-                 .primaryTech(user.getPrimaryTech())
-                 .primarySkill(user.getPrimarySkill())
-                 .careerStartDate(user.getCareerStartDate())
-                 .joiningDate(user.getJoiningDate())
-                 .carrerGapYears(user.getCarrerGap().getYears())
-                 .carrerGapMonths(user.getCarrerGap().getMonths())
-                 .totalExpYears(user.getTotalExp().getYears())
-                 .totalExpMonths(user.getTotalExp().getMonths())
-                 .functionalExpYears(user.getFunctionalExp().getYears())
-                 .functionalExpMonths(user.getFunctionalExp().getMonths())
-                 .previousWesternacherExpYears(user.getPreviousWesternacherExp().getYears())
-                 .previousWesternacherExpMonths(user.getPreviousWesternacherExp().getMonths())
-                 .totalWesternacherExpYears(user.getTotalWesternacherExp().getYears())
-                 .totalWesternacherExpMonths(user.getTotalWesternacherExp().getMonths())
-                 .build();
-
+        return BasicProfile.toBasicProfile(user);
     }
 
     @GetMapping(value = "/{userId}/profileAdvanced")
