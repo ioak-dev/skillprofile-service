@@ -50,23 +50,5 @@ public class BasicProfile extends UserResource{
                            .build();
     }
 
-    public static User toUser(BasicProfile basicProfile, User user) {
-        user.setFirstName(basicProfile.getFirstName());
-        user.setLastName(basicProfile.getLastName());
-        user.setEmpId(basicProfile.getEmpId());
-        user.setEmail(basicProfile.getEmail());
-        user.setDesignation(basicProfile.getDesignation());
-        user.setPrimaryTech(basicProfile.getPrimaryTech());
-        user.setPrimarySkill(basicProfile.getPrimarySkill());
-        user.setBillability(basicProfile.isBillability());
-        user.setMeasures(null);
-        user.setCareerStartDate(basicProfile.getCareerStartDate());
-        user.setJoiningDate(basicProfile.getJoiningDate());
-        user.setCarrerGap(new UnitofMeasure(basicProfile.getCarrerGapYears(), basicProfile.getCarrerGapMonths()));
-        user.setTotalExp(new UnitofMeasure(basicProfile.getTotalExpYears(), basicProfile.getTotalExpMonths()));
-        user.setFunctionalExp(new UnitofMeasure(basicProfile.getFunctionalExpYears(), basicProfile.getFunctionalExpMonths()));
-        user.setPreviousWesternacherExp(new UnitofMeasure(basicProfile.getPreviousWesternacherExpYears(), basicProfile.getPreviousWesternacherExpMonths()));
-        user.setTotalWesternacherExp(new UnitofMeasure(basicProfile.getTotalWesternacherExpYears(), basicProfile.getTotalWesternacherExpMonths()));
-        return user;
-    }
+
 }

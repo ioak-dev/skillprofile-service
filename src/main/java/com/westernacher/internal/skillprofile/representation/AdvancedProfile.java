@@ -3,6 +3,7 @@ package com.westernacher.internal.skillprofile.representation;
 import com.westernacher.internal.skillprofile.domain.UnitofMeasure;
 import com.westernacher.internal.skillprofile.domain.User;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import java.util.Map;
 
 @NoArgsConstructor
 @Builder
+@Data
 public class AdvancedProfile {
 
     private final Map<String, List<MeasureResource>> data = new HashMap<>();
@@ -30,11 +32,10 @@ public class AdvancedProfile {
         return AdvancedProfile.builder().build();
     }
 
-    public static User toUser(AdvancedProfile advancedProfile, User user) {
-        advancedProfile.data.forEach((k,v)->{
-            user.getMeasures().addAll(MeasureResource.toListOfMeasure(v));
-        });
-        return user;
-    }
+
+
+
+
+
 
 }
