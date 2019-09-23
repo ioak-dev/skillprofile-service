@@ -25,15 +25,13 @@ public class UserController {
     }
 
     @PutMapping(value = "/{userId}/profilebasic")
-    public BasicProfile saveBasicProfile(@PathVariable String userId,
+    public void saveBasicProfile(@PathVariable String userId,
                                          @RequestBody BasicProfile basicProfile) {
-        User user = repository.findById(userId).orElseGet(null);
+        User user = repository.findById(userId).orElse(null);
         if (user!=null) {
-            user = basicProfiletoUser(basicProfile, user);
-            return BasicProfile.toBasicProfile(repository.save(user));
+            repository.save(basicProfiletoUser(basicProfile, user));
         } else {
-            user = basicProfiletoUser(basicProfile, new User());
-            return BasicProfile.toBasicProfile(repository.save(user));
+            repository.save(basicProfiletoUser(basicProfile, new User()));
         }
 
     }
@@ -41,7 +39,7 @@ public class UserController {
     @PutMapping(value = "/{userId}/profileadvanced")
     public void saveAdvancedProfile(@PathVariable String userId,
                                                @RequestBody AdvancedProfile advancedProfile) {
-        User user = repository.findById(userId).orElseGet(null);
+        User user = repository.findById(userId).orElse(null);
         if (user!=null) {
             user = advancedProfiletoUser(advancedProfile, user);
             repository.save(user);
@@ -53,7 +51,9 @@ public class UserController {
 
     @GetMapping(value = "/email/{emailId}")
     public UserResource getUserByEmailId(@PathVariable String emailId) {
-        return UserResource.getUserResource(this.repository.getByEmail(emailId));
+        User user = this.repository.getByEmail(emailId);
+        return new UserResource(user.getId(), user.getEmail(), user.getFirstName(), user.getLastName(),
+                                user.getFirstName() +" "+ user.getLastName());
     }
 
     @GetMapping(value = "/{userId}/profileBasic")

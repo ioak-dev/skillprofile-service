@@ -1,6 +1,5 @@
 package com.westernacher.internal.skillprofile.representation;
 
-import com.westernacher.internal.skillprofile.domain.UnitofMeasure;
 import com.westernacher.internal.skillprofile.domain.User;
 import lombok.Builder;
 import lombok.Getter;
@@ -10,7 +9,10 @@ import java.util.Date;
 @Builder
 @Getter
 public class BasicProfile extends UserResource{
-    private final String empId;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String empId;
     private final String designation;
     private final String primaryTech;
     private final String primarySkill;
@@ -31,6 +33,9 @@ public class BasicProfile extends UserResource{
 
     public static BasicProfile toBasicProfile(User user) {
         return BasicProfile.builder()
+                           .firstName(user.getFirstName())
+                           .lastName(user.getLastName())
+                           .email(user.getEmail())
                            .empId(user.getEmpId())
                            .designation(user.getDesignation())
                            .primaryTech(user.getPrimaryTech())
