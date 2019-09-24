@@ -2,20 +2,20 @@ package com.westernacher.internal.skillprofile.representation;
 
 import com.westernacher.internal.skillprofile.domain.Measure;
 import com.westernacher.internal.skillprofile.domain.UnitofMeasure;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Getter
-@AllArgsConstructor
+@NoArgsConstructor
 public class MeasureResource {
 
-    private final String category;
-    private final String topic;
-    private final int years;
-    private final int months;
+    private String category;
+    private String topic;
+    private int years;
+    private int months;
 
     public MeasureResource(Measure measure) {
         this.category = measure.getCategory();

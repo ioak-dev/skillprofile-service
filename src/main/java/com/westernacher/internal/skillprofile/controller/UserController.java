@@ -52,16 +52,14 @@ public class UserController {
     }
 
     @PutMapping(value = "/{userId}/profileAdvanced")
-    public void saveAdvancedProfile(@PathVariable String userId,
+    public AdvancedProfile saveAdvancedProfile(@PathVariable String userId,
                                                @RequestBody AdvancedProfile advancedProfile) {
         User user = this.repository.findById(userId).orElse(null);
-        if (user!=null) {
-            user = advancedProfiletoUser(advancedProfile, user);
-            this.repository.save(user);
-        } else {
-            user = advancedProfiletoUser(advancedProfile, new User());
-            this.repository.save(user);
+        if (user == null) {
+            return null;
         }
+        user = advancedProfiletoUser(advancedProfile, user);
+        return AdvancedProfile.toAdvancedProfile(this.repository.save(user));
     }
 
     @GetMapping(value = "/email/{emailId}")
@@ -94,7 +92,7 @@ public class UserController {
 
     private User advancedProfiletoUser(AdvancedProfile advancedProfile, User user) {
         advancedProfile.getData().forEach((k,v)->{
-            user.getMeasures().addAll(MeasureResource.toListOfMeasure(v));
+            user.setMeasures(MeasureResource.toListOfMeasure(v));
         });
         return user;
     }
