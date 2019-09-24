@@ -4,6 +4,7 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class User {
     private String primaryTech;
     private String primarySkill;
     private boolean billability;
-    private List<Measure> measures;
+    private List<Measure> measures = new ArrayList<>();
     private Date careerStartDate;
     private Date joiningDate;
     private UnitofMeasure carrerGap;
@@ -30,5 +31,7 @@ public class User {
     private UnitofMeasure previousWesternacherExp;
     private UnitofMeasure totalWesternacherExp;
 
-
+    public String getEmail() {
+         return this.email != null ? this.email.toLowerCase() : null;
+    }
 }

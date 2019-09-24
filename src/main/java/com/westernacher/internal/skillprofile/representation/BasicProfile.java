@@ -6,13 +6,8 @@ import lombok.Getter;
 
 import java.util.Date;
 
-@Builder
 @Getter
 public class BasicProfile extends UserResource{
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String empId;
     private final String designation;
     private final String primaryTech;
     private final String primarySkill;
@@ -30,13 +25,42 @@ public class BasicProfile extends UserResource{
     private final Integer totalWesternacherExpYears;
     private final Integer totalWesternacherExpMonths;
 
+    @Builder
+    public BasicProfile(String id, String empId, String email, String firstName, String lastName, String fullName, String designation,
+                        String primaryTech, String primarySkill, boolean billability, Date careerStartDate, Date joiningDate,
+                        Integer carrerGapYears, Integer carrerGapMonths, Integer totalExpYears, Integer totalExpMonths,
+                        Integer functionalExpYears, Integer functionalExpMonths, Integer previousWesternacherExpYears,
+                        Integer previousWesternacherExpMonths, Integer totalWesternacherExpYears, Integer totalWesternacherExpMonths) {
+        super(id, empId, email, firstName, lastName, fullName);
+        this.designation = designation;
+        this.primaryTech = primaryTech;
+        this.primarySkill = primarySkill;
+        this.billability = billability;
+        this.careerStartDate = careerStartDate;
+        this.joiningDate = joiningDate;
+        this.carrerGapYears = carrerGapYears;
+        this.carrerGapMonths = carrerGapMonths;
+        this.totalExpYears = totalExpYears;
+        this.totalExpMonths = totalExpMonths;
+        this.functionalExpYears = functionalExpYears;
+        this.functionalExpMonths = functionalExpMonths;
+        this.previousWesternacherExpYears = previousWesternacherExpYears;
+        this.previousWesternacherExpMonths = previousWesternacherExpMonths;
+        this.totalWesternacherExpYears = totalWesternacherExpYears;
+        this.totalWesternacherExpMonths = totalWesternacherExpMonths;
+    }
 
     public static BasicProfile toBasicProfile(User user) {
+        if (user == null) {
+            return null;
+        }
+
         return BasicProfile.builder()
+                           .id(user.getId())
+                           .empId(user.getEmpId())
+                           .email(user.getEmail())
                            .firstName(user.getFirstName())
                            .lastName(user.getLastName())
-                           .email(user.getEmail())
-                           .empId(user.getEmpId())
                            .designation(user.getDesignation())
                            .primaryTech(user.getPrimaryTech())
                            .primarySkill(user.getPrimarySkill())
@@ -54,6 +78,4 @@ public class BasicProfile extends UserResource{
                            .totalWesternacherExpMonths(user.getTotalWesternacherExp().getMonths())
                            .build();
     }
-
-
 }

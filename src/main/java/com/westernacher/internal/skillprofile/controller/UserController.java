@@ -10,6 +10,7 @@ import com.westernacher.internal.skillprofile.representation.UserResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -24,35 +25,52 @@ public class UserController {
         return this.repository.findAll();
     }
 
-    @PutMapping(value = "/{userId}/profilebasic")
-    public void saveBasicProfile(@PathVariable String userId,
-                                         @RequestBody BasicProfile basicProfile) {
-        User user = repository.findById(userId).orElse(null);
-        if (user!=null) {
-            repository.save(basicProfiletoUser(basicProfile, user));
-        } else {
-            repository.save(basicProfiletoUser(basicProfile, new User()));
+    @PutMapping(value = "/profileBasic")
+    public BasicProfile save(@RequestBody BasicProfile basicProfile) {
+        return persistBasicProfile(basicProfile);
+    }
+
+    private BasicProfile persistBasicProfile(BasicProfile basicProfile) {
+        if (basicProfile.getEmail() == null) {
+            return null;
         }
+
+        return BasicProfile.toBasicProfile(this.repository.save(basicProfiletoUser(basicProfile, this.repository.getByEmail(basicProfile.getEmail()))));
+    }
+
+    @PostMapping(value = "/profileBasic")
+    public List<BasicProfile> save(@RequestBody List<BasicProfile> basicProfileList) {
+
+        List<BasicProfile> savedBasicProfileList = new ArrayList<>();
+
+        for (BasicProfile basicProfile : basicProfileList) {
+            savedBasicProfileList.add(persistBasicProfile(basicProfile));
+        }
+
+        return savedBasicProfileList;
 
     }
 
-    @PutMapping(value = "/{userId}/profileadvanced")
+    @PutMapping(value = "/{userId}/profileAdvanced")
     public void saveAdvancedProfile(@PathVariable String userId,
                                                @RequestBody AdvancedProfile advancedProfile) {
-        User user = repository.findById(userId).orElse(null);
+        User user = this.repository.findById(userId).orElse(null);
         if (user!=null) {
             user = advancedProfiletoUser(advancedProfile, user);
-            repository.save(user);
+            this.repository.save(user);
         } else {
             user = advancedProfiletoUser(advancedProfile, new User());
-            repository.save(user);
+            this.repository.save(user);
         }
     }
 
     @GetMapping(value = "/email/{emailId}")
     public UserResource getUserByEmailId(@PathVariable String emailId) {
-        User user = this.repository.getByEmail(emailId);
-        return new UserResource(user.getId(), user.getEmail(), user.getFirstName(), user.getLastName(),
+        if (emailId == null) {
+            return null;
+        }
+        User user = this.repository.getByEmail(emailId.toLowerCase());
+        return new UserResource(user.getId(), user.getEmpId(), user.getEmail(), user.getFirstName(), user.getLastName(),
                                 user.getFirstName() +" "+ user.getLastName());
     }
 
@@ -82,6 +100,9 @@ public class UserController {
     }
 
     private User basicProfiletoUser(BasicProfile basicProfile, User user) {
+        if (user == null) {
+            user = new User();
+        }
         user.setFirstName(basicProfile.getFirstName());
         user.setLastName(basicProfile.getLastName());
         user.setEmpId(basicProfile.getEmpId());
@@ -90,7 +111,6 @@ public class UserController {
         user.setPrimaryTech(basicProfile.getPrimaryTech());
         user.setPrimarySkill(basicProfile.getPrimarySkill());
         user.setBillability(basicProfile.isBillability());
-        user.setMeasures(null);
         user.setCareerStartDate(basicProfile.getCareerStartDate());
         user.setJoiningDate(basicProfile.getJoiningDate());
         user.setCarrerGap(new UnitofMeasure(basicProfile.getCarrerGapYears(), basicProfile.getCarrerGapMonths()));
