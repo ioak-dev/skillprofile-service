@@ -2,12 +2,14 @@ package com.westernacher.internal.skillprofile.representation;
 
 import com.westernacher.internal.skillprofile.domain.Measure;
 import com.westernacher.internal.skillprofile.domain.UnitofMeasure;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Getter
+@AllArgsConstructor
 public class MeasureResource {
 
     private final String category;
