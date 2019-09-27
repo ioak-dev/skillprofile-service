@@ -12,7 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/user")
@@ -95,9 +97,17 @@ public class UserController {
     }
 
     private User advancedProfiletoUser(AdvancedProfile advancedProfile, User user) {
-        advancedProfile.getData().forEach((k,v)->{
-            user.setMeasures(MeasureResource.toListOfMeasure(v));
-        });
+
+
+        List<MeasureResource> measureResourcesList = new ArrayList<>();
+        Map<String, List<MeasureResource>> measureResourcesMap = advancedProfile.getData();
+
+        for (Map.Entry<String, List<MeasureResource>> entry : measureResourcesMap.entrySet()){
+            measureResourcesList.addAll(entry.getValue());
+        }
+
+        user.setMeasures(MeasureResource.toListOfMeasure(measureResourcesList));
+
         return user;
     }
 

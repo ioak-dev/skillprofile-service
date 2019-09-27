@@ -1,0 +1,269 @@
+[
+  {
+    "category": "Split up of Overall Experience",
+    "topic": "Delivery"
+  },
+  {
+    "category": "Split up of Overall Experience",
+    "topic": "Sales"
+  },
+  {
+    "category": "Split up of Overall Experience",
+    "topic": "Others"
+  },
+
+
+
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "EWM-EWM"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "EWM-EWM-Tech"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "TM-TM"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "TM-EM"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "TM-TM-Tech"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "P&A-IBP"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "P&A-SNC"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "P&A-APO"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "P&A-P&A-TECH"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "P2P-SRM"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "P2P-ARIBA"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "P2P-SRM-TECH"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "O2C-CRM"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "O2C-C4C"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "O2C-CRM-TECH"
+  },
+
+
+
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "SAP Classical Functional-FICO"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "SAP Classical Functional-BPC"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "SAP Classical Functional-MM"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "SAP Classical Functional-WM"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "SAP Classical Functional-SD"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "SAP Classical Functional-PP"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "SAP Classical Functional-QM"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "SAP Classical Functional-PS"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "SAP Classical Functional-PM"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "SAP Classical Functional-EHS"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "SAP Classical Functional-GTS"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "SAP Classical Functional-HCM"
+  },
+
+
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "SAP Classical Technical-ABAP"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "SAP Classical Technical-BW"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "SAP Classical Technical-PI/PO"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "SAP Classical Technical-HCI"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "SAP Classical Technical-EP"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "SAP Classical Technical-MOBILITY"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "SAP Classical Technical-BASIS"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "SAP Classical Technical-HANA"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "SAP Classical Technical-FIORI"
+  },
+
+
+
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "Others-Java/.NET"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "Others-Android"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "Others-C/C++"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "Others-IoT"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "Others-MGMT"
+  },
+  {
+    "category": "IT & SAP Expertise",
+    "topic": "Others-OPS"
+  },
+
+
+  {
+    "category": "Geography worked for - Customer served",
+    "topic": "Europe"
+  },
+  {
+    "category": "Geography worked for - Customer served",
+    "topic": "Americas"
+  },
+  {
+    "category": "Geography worked for - Customer served",
+    "topic": "MENA"
+  },
+  {
+    "category": "Geography worked for - Customer served",
+    "topic": "APAC"
+  },
+
+
+
+  {
+    "category": "Geography worked from - onsite / offshore",
+    "topic": "Europe"
+  },
+  {
+    "category": "Geography worked from - onsite / offshore",
+    "topic": "Americas"
+  },
+  {
+    "category": "Geography worked from - onsite / offshore",
+    "topic": "MENA"
+  },
+  {
+    "category": "Geography worked from - onsite / offshore",
+    "topic": "APAC"
+  },
+
+
+
+  {
+    "category": "Industry Vertical - Domain Experience",
+    "topic": "IMC"
+  },
+  {
+    "category": "Industry Vertical - Domain Experience",
+    "topic": "Auto"
+  },
+  {
+    "category": "Industry Vertical - Domain Experience",
+    "topic": "Retail&Wholesale"
+  },
+  {
+    "category": "Industry Vertical - Domain Experience",
+    "topic": "LSP"
+  },
+  {
+    "category": "Industry Vertical - Domain Experience",
+    "topic": "Consumer Goods"
+  },
+  {
+    "category": "Industry Vertical - Domain Experience",
+    "topic": "Life Sci"
+  },
+  {
+    "category": "Industry Vertical - Domain Experience",
+    "topic": "Utilities & Telecom"
+  },
+  {
+    "category": "Industry Vertical - Domain Experience",
+    "topic": "Process"
+  },
+  {
+    "category": "Industry Vertical - Domain Experience",
+    "topic": "OTH"
+  }
+]
