@@ -2,6 +2,7 @@ package com.westernacher.internal.skillprofile.controller;
 
 import com.westernacher.internal.skillprofile.domain.UnitofMeasure;
 import com.westernacher.internal.skillprofile.domain.User;
+import com.westernacher.internal.skillprofile.repository.MeasureReferenceRepository;
 import com.westernacher.internal.skillprofile.repository.UserRepository;
 import com.westernacher.internal.skillprofile.representation.AdvancedProfile;
 import com.westernacher.internal.skillprofile.representation.BasicProfile;
@@ -19,6 +20,9 @@ public class UserController {
 
     @Autowired
     private UserRepository repository;
+
+    @Autowired
+    private MeasureReferenceRepository measureReferenceRepository;
 
     @GetMapping
     public List<User> getAll () {
@@ -99,7 +103,7 @@ public class UserController {
 
     private User basicProfiletoUser(BasicProfile basicProfile, User user) {
         if (user == null) {
-            user = new User();
+            user = new User(this.measureReferenceRepository.findAll());
         }
         user.setFirstName(basicProfile.getFirstName());
         user.setLastName(basicProfile.getLastName());

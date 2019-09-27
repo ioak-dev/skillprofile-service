@@ -11,4 +11,10 @@ public class Measure {
     private String category;
     private String topic;
     private UnitofMeasure unitofMeasure;
+
+    public Measure(MeasureReference reference) {
+        this.category = reference.getCategory();
+        this.topic = reference.getTopic();
+        this.unitofMeasure = new UnitofMeasure(0, 0);
+    }
 }

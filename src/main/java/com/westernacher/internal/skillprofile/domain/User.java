@@ -34,4 +34,16 @@ public class User {
     public String getEmail() {
          return this.email != null ? this.email.toLowerCase() : null;
     }
+
+    public User() {
+
+    }
+
+    public User(List<MeasureReference> measureReferenceList) {
+        if (measureReferenceList != null) {
+            measureReferenceList.stream().forEach(
+                    item -> this.measures.add(new Measure(item))
+            );
+        }
+    }
 }

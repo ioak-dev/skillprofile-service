@@ -8,5 +8,4 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class MeasureReference {
     private String category;
     private String topic;
-    private UnitofMeasure unitofMeasure;
 }
