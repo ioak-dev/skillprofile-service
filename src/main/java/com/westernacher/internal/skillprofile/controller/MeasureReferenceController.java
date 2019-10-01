@@ -40,6 +40,27 @@ public class MeasureReferenceController {
 
         /*Header Part*/
         StringBuffer csvString= new StringBuffer();
+        csvString.append(",,,,,,,,,,,,,,,");
+
+        measureReferenceList.stream().forEach(measureReference -> {
+            measureRepresentationList.add(MeasureRepresentation.builder()
+                                                               .category(measureReference.getCategory())
+                                                               .topic(measureReference.getTopic())
+                                                               .build());
+        });
+        List<String> oldHeader =  new ArrayList<>();
+        for (MeasureReference measureReference:measureReferenceList) {
+            if (!oldHeader.contains(measureReference.getCategory())){
+                csvString.append(measureReference.getCategory());
+                oldHeader.add(measureReference.getCategory());
+                csvString.append(",");
+            }else {
+                csvString.append(",");
+            }
+        }
+
+        csvString.append(System.lineSeparator());
+        
         csvString.append("First Name");
         csvString.append(",");
         csvString.append("Last Name");
@@ -70,28 +91,6 @@ public class MeasureReferenceController {
         csvString.append(",");
         csvString.append("totalWesternacherExp");
         csvString.append(",");
-
-
-        measureReferenceList.stream().forEach(measureReference -> {
-            measureRepresentationList.add(MeasureRepresentation.builder()
-                                                               .category(measureReference.getCategory())
-                                                               .topic(measureReference.getTopic())
-                                                               .build());
-        });
-        List<String> oldHeader =  new ArrayList<>();
-        for (MeasureReference measureReference:measureReferenceList) {
-            if (!oldHeader.contains(measureReference.getCategory())){
-                csvString.append(measureReference.getCategory());
-                oldHeader.add(measureReference.getCategory());
-                csvString.append(",");
-            }else {
-                csvString.append(",");
-            }
-        }
-
-        csvString.append(System.lineSeparator());
-
-        csvString.append(",,,,,,,,,,,,,,,");
         measureReferenceList.stream().forEach(measureReference -> {
             csvString.append(measureReference.getTopic());
             csvString.append(",");
