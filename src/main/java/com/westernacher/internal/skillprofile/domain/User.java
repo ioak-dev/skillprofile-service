@@ -46,4 +46,8 @@ public class User {
             );
         }
     }
+
+    public static String toString(UnitofMeasure unitofMeasure) {
+        return unitofMeasure.getYears()+"."+unitofMeasure.getMonths();
+    }
 }
