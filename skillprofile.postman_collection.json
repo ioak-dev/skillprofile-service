@@ -1,0 +1,194 @@
+{
+	"info": {
+		"_postman_id": "2196d063-1e75-1c22-db07-7be1e6cc9358",
+		"name": "skillprofile",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/user/profilebasic",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"amarendra.sahoo@westernacher.com\",\r\n    \"firstName\": \"Amarendra\",\r\n    \"lastName\": \"Sahoo\",\r\n    \"empId\": \"639\",\r\n    \"designation\": \"Senior Consultant\",\r\n    \"primaryTech\": \"Java\",\r\n    \"primarySkill\": \"java\",\r\n    \"billability\": true,\r\n    \"carrerGapYears\": 2,\r\n    \"carrerGapMonths\": 3,\r\n    \"totalExpYears\": 2,\r\n    \"totalExpMonths\": 3,\r\n    \"functionalExpYears\": 2,\r\n    \"functionalExpMonths\": 3,\r\n    \"previousWesternacherExpYears\": 3,\r\n    \"previousWesternacherExpMonths\": 3,\r\n    \"totalWesternacherExpYears\": 3,\r\n    \"totalWesternacherExpMonths\": 3\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/user/profileBasic",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"user",
+						"profileBasic"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/user",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/user",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/user/basicprofile [DATALOAD]",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n    \"email\": \"arunkumar.selvaraj@westernacher.com\",\r\n    \"firstName\": \"Arun Kumar\",\r\n    \"lastName\": \"Selvaraj\",\r\n    \"empId\": \"639\",\r\n    \"designation\": \"Senior Consultant\",\r\n    \"primaryTech\": \"Java\",\r\n    \"primarySkill\": \"java\",\r\n    \"billability\": true,\r\n    \"carrerGapYears\": 2,\r\n    \"carrerGapMonths\": 3,\r\n    \"totalExpYears\": 2,\r\n    \"totalExpMonths\": 3,\r\n    \"functionalExpYears\": 2,\r\n    \"functionalExpMonths\": 3,\r\n    \"previousWesternacherExpYears\": 3,\r\n    \"previousWesternacherExpMonths\": 3,\r\n    \"totalWesternacherExpYears\": 3,\r\n    \"totalWesternacherExpMonths\": 3\r\n}]"
+				},
+				"url": {
+					"raw": "{{url}}/user/profileBasic",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"user",
+						"profileBasic"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/user/{id}/profileAdvanced",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"data\": {\r\n\t\t\"geography\":\r\n\t        [\r\n\t        \t{\r\n\t\t            \"category\": \"geography\",\r\n\t\t            \"topic\": \"Delivery\",\r\n\t\t            \"years\": 2,\r\n\t\t            \"months\": 3\r\n\t\t        }\r\n\t    \t]\r\n\t}\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/measure",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"measure"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/measure",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n  {\n    \"category\": \"Split up of Overall Experience\",\n    \"topic\": \"Delivery\"\n  },\n  {\n    \"category\": \"Split up of Overall Experience\",\n    \"topic\": \"Sales\"\n  },\n  {\n    \"category\": \"Split up of Overall Experience\",\n    \"topic\": \"Others\"\n  },\n\n\n\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"EWM-EWM\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"EWM-EWM-Tech\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"TM-TM\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"TM-EM\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"TM-TM-Tech\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"P&A-IBP\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"P&A-SNC\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"P&A-APO\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"P&A-P&A-TECH\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"P2P-SRM\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"P2P-ARIBA\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"P2P-SRM-TECH\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"O2C-CRM\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"O2C-C4C\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"O2C-CRM-TECH\"\n  },\n\n\n\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"SAP Classical Functional-FICO\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"SAP Classical Functional-BPC\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"SAP Classical Functional-MM\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"SAP Classical Functional-WM\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"SAP Classical Functional-SD\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"SAP Classical Functional-PP\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"SAP Classical Functional-QM\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"SAP Classical Functional-PS\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"SAP Classical Functional-PM\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"SAP Classical Functional-EHS\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"SAP Classical Functional-GTS\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"SAP Classical Functional-HCM\"\n  },\n\n\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"SAP Classical Technical-ABAP\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"SAP Classical Technical-BW\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"SAP Classical Technical-PI/PO\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"SAP Classical Technical-HCI\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"SAP Classical Technical-EP\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"SAP Classical Technical-MOBILITY\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"SAP Classical Technical-BASIS\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"SAP Classical Technical-HANA\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"SAP Classical Technical-FIORI\"\n  },\n\n\n\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"Others-Java/.NET\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"Others-Android\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"Others-C/C++\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"Others-IoT\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"Others-MGMT\"\n  },\n  {\n    \"category\": \"IT & SAP Expertise\",\n    \"topic\": \"Others-OPS\"\n  },\n\n\n  {\n    \"category\": \"Geography worked for - Customer served\",\n    \"topic\": \"Europe\"\n  },\n  {\n    \"category\": \"Geography worked for - Customer served\",\n    \"topic\": \"Americas\"\n  },\n  {\n    \"category\": \"Geography worked for - Customer served\",\n    \"topic\": \"MENA\"\n  },\n  {\n    \"category\": \"Geography worked for - Customer served\",\n    \"topic\": \"APAC\"\n  },\n\n\n\n  {\n    \"category\": \"Geography worked from - onsite / offshore\",\n    \"topic\": \"Europe\"\n  },\n  {\n    \"category\": \"Geography worked from - onsite / offshore\",\n    \"topic\": \"Americas\"\n  },\n  {\n    \"category\": \"Geography worked from - onsite / offshore\",\n    \"topic\": \"MENA\"\n  },\n  {\n    \"category\": \"Geography worked from - onsite / offshore\",\n    \"topic\": \"APAC\"\n  },\n\n\n\n  {\n    \"category\": \"Industry Vertical - Domain Experience\",\n    \"topic\": \"IMC\"\n  },\n  {\n    \"category\": \"Industry Vertical - Domain Experience\",\n    \"topic\": \"Auto\"\n  },\n  {\n    \"category\": \"Industry Vertical - Domain Experience\",\n    \"topic\": \"Retail&Wholesale\"\n  },\n  {\n    \"category\": \"Industry Vertical - Domain Experience\",\n    \"topic\": \"LSP\"\n  },\n  {\n    \"category\": \"Industry Vertical - Domain Experience\",\n    \"topic\": \"Consumer Goods\"\n  },\n  {\n    \"category\": \"Industry Vertical - Domain Experience\",\n    \"topic\": \"Life Sci\"\n  },\n  {\n    \"category\": \"Industry Vertical - Domain Experience\",\n    \"topic\": \"Utilities & Telecom\"\n  },\n  {\n    \"category\": \"Industry Vertical - Domain Experience\",\n    \"topic\": \"Process\"\n  },\n  {\n    \"category\": \"Industry Vertical - Domain Experience\",\n    \"topic\": \"OTH\"\n  }\n]\n"
+				},
+				"url": {
+					"raw": "{{url}}/measure?type=add",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"measure"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "add"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/measure",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/export/csv",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"export",
+						"csv"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/user/{id}/profileAdvanced",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"data\":{\"Geography worked for - Customer served\":[{\"category\":\"Geography worked for - Customer served\",\"topic\":\"Europe\",\"years\":\"10\",\"months\":0},{\"category\":\"Geography worked for - Customer served\",\"topic\":\"Americas\",\"years\":0,\"months\":0},{\"category\":\"Geography worked for - Customer served\",\"topic\":\"MENA\",\"years\":0,\"months\":0},{\"category\":\"Geography worked for - Customer served\",\"topic\":\"APAC\",\"years\":0,\"months\":0}],\"IT & SAP Expertise\":[{\"category\":\"IT & SAP Expertise\",\"topic\":\"EWM-EWM\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"EWM-EWM-Tech\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"TM-TM\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"TM-EM\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"TM-TM-Tech\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"P&A-IBP\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"P&A-SNC\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"P&A-APO\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"P&A-P&A-TECH\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"P2P-SRM\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"P2P-ARIBA\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"P2P-SRM-TECH\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"O2C-CRM\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"O2C-C4C\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"O2C-CRM-TECH\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"SAP Classical Functional-FICO\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"SAP Classical Functional-BPC\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"SAP Classical Functional-MM\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"SAP Classical Functional-WM\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"SAP Classical Functional-SD\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"SAP Classical Functional-PP\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"SAP Classical Functional-QM\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"SAP Classical Functional-PS\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"SAP Classical Functional-PM\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"SAP Classical Functional-EHS\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"SAP Classical Functional-GTS\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"SAP Classical Functional-HCM\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"SAP Classical Technical-ABAP\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"SAP Classical Technical-BW\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"SAP Classical Technical-PI/PO\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"SAP Classical Technical-HCI\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"SAP Classical Technical-EP\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"SAP Classical Technical-MOBILITY\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"SAP Classical Technical-BASIS\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"SAP Classical Technical-HANA\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"SAP Classical Technical-FIORI\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"Others-Java/.NET\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"Others-Android\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"Others-C/C++\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"Others-IoT\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"Others-MGMT\",\"years\":0,\"months\":0},{\"category\":\"IT & SAP Expertise\",\"topic\":\"Others-OPS\",\"years\":0,\"months\":0}],\"Split up of Overall Experience\":[{\"category\":\"Split up of Overall Experience\",\"topic\":\"Delivery\",\"years\":0,\"months\":0},{\"category\":\"Split up of Overall Experience\",\"topic\":\"Sales\",\"years\":0,\"months\":0},{\"category\":\"Split up of Overall Experience\",\"topic\":\"Others\",\"years\":0,\"months\":0}]}}"
+				},
+				"url": {
+					"raw": "{{url}}/user/5d89d01b27652f3c30314ada/profileAdvanced",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"user",
+						"5d89d01b27652f3c30314ada",
+						"profileAdvanced"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
